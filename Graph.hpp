@@ -22,17 +22,22 @@ namespace ariel {
     private:
 
         vector<vector<int>> graph;
-        size_t n;
+        size_t n = 0;
 
     public:
-        // Constructor
-        Graph(){}
 
-        // Destructor
-        ~Graph(){}
+        Graph() {}
+
+        Graph(vector<vector<int>> myGraph) {
+            loadGraph(myGraph);
+        }
 
         size_t getSize() {
             return n;
+        }
+
+        vector<vector<int>> getGraph() {
+            return graph;
         }
 
         // Function to load graph data from file
@@ -67,15 +72,11 @@ namespace ariel {
             std::cout << "Graph with " <<  graph.size() << " vertices and " << e_count << " edges.\n";
         }
 
-        bool is_BFS_cover_all(size_t start);
+        //bool dfs(size_t node, vector<bool>& visited, vector<size_t>& parent, string& cycle);
 
-        vector<int> dijkstra(size_t start, vector<size_t>& predecessors);
+        //bool Bellman_Ford_Negative_Cycle();
 
-        bool dfs(size_t node, vector<bool>& visited, vector<size_t>& parent, string& cycle);
-
-        bool Bellman_Ford_Negative_Cycle();
-
-        bool isBipartite();
+        //bool isBipartite();
 
     };
 
